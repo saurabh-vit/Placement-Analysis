@@ -1,46 +1,102 @@
-# Campus Recruitment Data Analysis
+# 📊 Placement Data Analysis & Visualization using Python
 
-## Overview
-This project is an analysis of campus recruitment data conducted by Manthan Bagade. The aim is to learn and apply data analysis techniques using Python on real-life datasets. The analysis focuses on understanding the academic and employability factors that influence college placements.
+This project provides an in-depth analysis of a placement dataset to uncover insights about how academic performance, gender, work experience, and specialization affect student placement outcomes and salary. It combines data preprocessing, statistical exploration, correlation studies, and rich visualizations using Python.
 
-## Objective
-The primary objectives of this project are:
-- Analyze historical placement data to uncover trends and patterns.
-- Identify key factors that influence student placement outcomes.
-- Develop predictive models for anticipating placement success.
-- Visualize insights through intuitive charts and graphs for better understanding.
+---
 
+## 🛠️ Tech Stack
 
-The ultimate goal is to enhance skills in data science through practical application.
+- **Language**: Python 3
+- **Libraries**: 
+  - `pandas`
+  - `numpy`
+  - `matplotlib`
+  - `seaborn`
+  - `scipy` (RBF interpolation for salary surface)
 
-## Dataset Source and Details
-- **Dataset Name**: Campus Recruitment
-- **Creator**: Ben Roshan
-- **Source**: The dataset is available on Kaggle. You can access it [here](https://www.kaggle.com/datasets/benroshan/factors-affecting-campus-placement/).
+---
 
-### Dataset Specifications
-- **File Type**: CSV
-- **Total Entries**: 215
-- **Total Columns**: 15
+## 📂 Dataset Description
 
-### Column Descriptions
+**File:** `Placement_Data_Full_Class.csv`  
+Contains features such as:
 
-| Column Name | Datatype | Description |
-|-------------|----------|-------------|
-| sl_no       | int      | Serial Number |
-| gender      | categorical(char) | Gender - Male='M', Female='F' |
-| ssc_p      | float    | Secondary Education percentage - 10th Grade |
-| ssc_b      | categorical(string) | Board of Education - Central/Others |
-| hsc_p      | float    | Higher Secondary Education percentage - 12th Grade |
-| hsc_b      | categorical(string) | Board of Education - Central/Others |
-| hsc_s      | categorical(string) | Specialization in Higher Secondary Education |
-| degree_p    | float    | Degree Percentage |
-| degree_t    | categorical(string) | Under Graduation (Degree type) - Field of degree |
-| workex      | categorical(string) | Work Experience |
-| etest_p     | float    | Employability test percentage (conducted by college) |
-| specialization | categorical(string) | Post Graduation (MBA) - Specialization |
-| mba_p       | float    | MBA percentage |
-| status      | categorical(string) | Status of placement - Placed/Not placed |
-| salary      | int      | Salary offered by corporate to candidates |
+- Academic performance: `ssc_p`, `hsc_p`, `degree_p`, `etest_p`, `mba_p`
+- Boards: `ssc_b`, `hsc_b`
+- Specialization: `specialisation`, `degree_t`
+- Gender, Work Experience, Placement Status
+- Salary offered
 
-This dataset provides a comprehensive view of the factors affecting campus placements. You can access the project report to get comprehensive details by clicking [here](https://docs.google.com/document/d/11-dlwHMChNp7d57RGAZnkk98vhloI9S5/edit?usp=sharing&ouid=104504384502282201521&rtpof=true&sd=true)
+---
+
+## 🔍 Project Workflow
+
+### 📌 1. Data Loading and Cleaning
+
+- Loaded CSV using `pandas`
+- Inspected data types and missing values
+- Replaced missing salary values with `0`
+- Identified and removed salary outliers using IQR
+
+### 📌 2. Exploratory Data Analysis (EDA)
+
+- Descriptive statistics using `.describe()`
+- Boxplots to detect outliers
+- Histograms to visualize distribution of salary and scores
+
+### 📌 3. Correlation Analysis
+
+- Heatmap showing correlation between numerical attributes (e.g., SSC %, MBA %, salary)
+- Helps identify strong relationships between scores and placement outcome
+
+### 📌 4. Gender-wise Placement Study
+
+- Aggregated placement counts and average salaries
+- 100% stacked bar chart visualizing placement rate by gender
+- Percentage annotation on plots for better interpretability
+
+### 📌 5. SSC vs HSC vs Salary (RBF Interpolation)
+
+- Generated smooth contour plots using Radial Basis Function
+- Revealed how combinations of SSC and HSC scores influence salary
+
+### 📌 6. Academic Scores vs Placement Rate
+
+- Stacked bar plots for:
+  - SSC percentage
+  - HSC percentage
+  - Degree percentage
+  - MBA percentage
+  - E-test scores
+- Score bins grouped by 10%
+- Shows how performance in each academic stage affects placement
+
+### 📌 7. Work Experience Impact
+
+- Bar chart showing how prior work experience affects placement rates
+- Percentage distribution between "Placed" and "Not Placed"
+
+### 📌 8. Salary by Degree and Specialization
+
+- Tabular comparison of average salary across different degree types and specializations
+
+---
+
+## 📈 Visualizations
+
+Here are some of the plots generated:
+
+- 📦 **Boxplot** for salary distribution (before and after cleaning)
+- 🔥 **Heatmap** for correlation matrix
+- 🧑‍🎓 **Stacked Bar Charts** for score-based placement relation
+- 🌈 **Contour Plot** showing salary surface based on SSC & HSC
+- 👨‍🏫 **Work Experience Chart** showing placement advantage
+
+---
+
+## 💻 How to Run
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/placement-analysis.git
+   cd placement-analysis
